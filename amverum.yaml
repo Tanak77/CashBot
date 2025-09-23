@@ -1,0 +1,5 @@
+runtime: python
+version: 3.11  # Укажите вашу версию Python
+entrypoint: python bot.py  # Команда для запуска вашего бота
+resources:
+  memory: 512Mi  # Пример выделения памяти
