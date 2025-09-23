@@ -1,5 +1,28 @@
+# Конфигурация для развертывания Python-бота на Amvera Cloud
 runtime: python
-version: 3.11  # Укажите вашу версию Python
-entrypoint: python bot.py  # Команда для запуска вашего бота
+version: 3.11
+
+# Команда для запуска бота
+entrypoint: python bot.py
+
+# Ресурсы (бесплатный тариф)
 resources:
-  memory: 512Mi  # Пример выделения памяти
+  memory: 512Mi
+  cpu: 0.5
+
+# Переменные окружения (устанавливаются в панели управления Amvera)
+environment:
+  variables:
+    - BOT_TOKEN
+    - API_KEY
+
+# Правила маршрутизации
+endpoints:
+  - name: bot
+    port: 8080
+    protocol: HTTP
+
+# Сборка приложения
+build:
+  commands:
+    - pip install -r requirements.txt
